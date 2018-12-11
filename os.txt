@@ -1,0 +1,40 @@
+#SCAN 1
+SCAN(V=7.40%E=4%D=11/12%OT=111%CT=1%CU=32416%PV=Y%DS=1%DC=D%G=Y%M=0050DA%TM=5BE99004%P=x86_64-pc-linux-gnu) ==>mon os
+SEQ(SP=104%GCD=1%ISR=10A%TI=Z%CI=I%TS=8) ==>sequence TCP unpredictible
+OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M5B4ST11)
+WIN(W1=7120%W2=7120%W3=7120%W4=7120%W5=7120%W6=7120)
+ECN(R=Y%DF=Y%T=40%W=7210%O=M5B4NNSNW7%CC=Y%Q=)
+T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)
+T2(R=N)
+T3(R=N)
+T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)
+T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=) ==>port fermé
+T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=) ==>port fermé
+T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=) ==>port fermé
+U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)
+IE(R=Y%DFI=N%T=40%CD=S) ==>icmp 
+
+
+#SCAN 2
+SCAN(V=7.40%E=4%D=11/12%OT=111%CT=%CU=32577%PV=Y%DS=2%DC=T%G=N%TM=5BE9AEB6%P=x86_64-pc-linux-gnu)
+SEQ(SP=101%GCD=1%ISR=10F%TI=Z%TS=8)
+OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M5B4ST11)
+WIN(W1=7120%W2=7120%W3=7120%W4=7120%W5=7120%W6=7120)
+ECN(R=Y%DF=Y%T=40%W=7210%O=M5B4NNSNW7%CC=Y%Q=)
+T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=OS:)
+T2(R=N)
+T3(R=N)
+T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)
+U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)
+IE(R=N)
+
+ 
+
+
+# T1 is a SYN packet with a bunch of TCP options to open port
+# T2 is a NULL packet w/options to open port
+# T3 is a SYN|FIN|URG|PSH packet w/options to open port
+# T4 is an ACK to open port w/options
+# T5 is a SYN to closed port w/options
+# T6 is an ACK to closed port w/options
+# T7 is a FIN|PSH|URG to a closed port w/options

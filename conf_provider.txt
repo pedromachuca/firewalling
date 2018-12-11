@@ -1,0 +1,67 @@
+en 
+conf t
+
+vlan 2
+name SOC1
+no sh 
+exit
+
+vlan 3
+name SOC2
+no sh 
+exit
+
+vlan 4
+name SOC3
+no sh 
+exit
+
+vlan 5
+name SOC4
+no sh 
+exit
+
+vlan 6
+name SOC5
+no sh 
+exit
+
+
+int fa0/24
+sw mode trunk
+no sh 
+exit
+int fa0/23
+sw mode trunk
+no sh 
+exit
+
+int fa0/1
+sw mode access 
+switchport access vlan 2
+no sh
+exit
+
+int fa0/2
+sw mode access 
+switchport access vlan 3
+no sh
+exit
+
+int fa0/3
+sw mode access 
+switchport access vlan 4
+no sh
+exit
+
+int fa0/4
+sw mode access 
+switchport access vlan 5
+no sh
+exit
+
+int fa0/5
+sw mode access 
+switchport access vlan 6
+no sh
+exit
